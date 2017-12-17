@@ -9,7 +9,7 @@ const config = {
     destDir: 'dist',
     staticRoute: '/assets',
     staticDir: './assets',
-    report: true,
+    report: false,
     proxy: {
         // '/': {
         //     target: '',

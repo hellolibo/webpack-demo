@@ -5,7 +5,7 @@ const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
 const ReloadPlugin = require('reload-html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
-import basicConfig from './config'
+const basicConfig = require('./config')
 
 const config = {
     entry: {

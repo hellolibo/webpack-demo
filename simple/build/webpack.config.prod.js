@@ -6,7 +6,7 @@ const ReloadPlugin = require('reload-html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-import basicConfig from './config'
+const basicConfig = require('./config')
 
 const config = {
     entry: {

@@ -4,8 +4,8 @@
         "syntax-dynamic-import"
     ],
     "presets": [
-        "env",
+        ["env", { "modules": false }],
         "stage-2"
-    ],
+      ],
     "comments": false
 }

@@ -1,16 +1,16 @@
-import gulp from 'gulp'
-import webpack from 'webpack'
-import serve from 'browser-sync'
-import del from 'del'
-import gutil from 'gulp-util'
+var gulp = require('gulp')
+var webpack = require('webpack')
+var serve = require('browser-sync')
+var del = require('del')
+var gutil = require('gulp-util')
 
 
-import webpackDevMiddleware from 'webpack-dev-middleware'
-import webpackHotMiddleware from 'webpack-hot-middleware'
-import proxyMiddleware from 'http-proxy-middleware'
-import colorsSupported from 'supports-color'
+var webpackDevMiddleware = require('webpack-dev-middleware')
+var webpackHotMiddleware = require('webpack-hot-middleware')
+var proxyMiddleware = require('http-proxy-middleware')
+var colorsSupported = require('supports-color')
 
-import buildConfig from './build/config'
+var buildConfig = require('./build/config')
 
 gulp.task('serve', () => {
     const config = require('./build/webpack.config.dev')
