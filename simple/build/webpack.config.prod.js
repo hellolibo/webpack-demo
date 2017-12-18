@@ -5,6 +5,7 @@ const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
 const ReloadPlugin = require('reload-html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 const basicConfig = require('./config')
 
@@ -68,10 +69,7 @@ const config = {
         new HtmlWebpackExternalsPlugin({
             externals: basicConfig.externals
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            mangle: {
-                except: ['$super', '$', 'exports', 'require'],
-            },
+        new UglifyJsPlugin({
             sourceMap: true
         }),
         new ExtractTextPlugin("css/[name].[contenthash:8].css"),
