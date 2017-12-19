@@ -77,7 +77,10 @@ const config = {
             from: path.resolve(__dirname, '../assets'),
             to: 'assets',
             ignore: ['.*']
-        }])
+        }]),
+        new HtmlWebpackPlugin({
+            template:'index.html'
+        })
     ]
 }
 
@@ -85,7 +88,7 @@ const config = {
 if (basicConfig.report) {
     var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
     config.plugins.push(new BundleAnalyzerPlugin())
-  }
+}
 
 
 module.exports = config
