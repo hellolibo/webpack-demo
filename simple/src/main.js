@@ -1,6 +1,8 @@
 
-import {add} from './modA'
 import './css/main.scss'
 
 $('body').addClass('gray')
-console.log(add(3,4))
+
+import(/* webpackChunkName: "modA" */'./modA').then(modA=>{
+    console.log(modA.add(3, 4))
+})

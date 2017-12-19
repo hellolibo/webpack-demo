@@ -7,5 +7,5 @@
         ["env", { "modules": false }],
         "stage-2"
       ],
-    "comments": false
+    "comments": true
 }
