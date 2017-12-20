@@ -16,7 +16,7 @@ const config = {
     output: {
         filename: 'js/[name].[chunkhash:8].js',
         path: path.resolve(__dirname, '../dist'),
-        chunkFilename: 'js/[name].js',
+        chunkFilename: 'js/[name].[chunkhash:8].js',
         publicPath: basicConfig.appPublicPath
     },
     devtool: 'source-map',
