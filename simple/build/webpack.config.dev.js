@@ -21,6 +21,15 @@ const config = {
     module: {
         rules: [
             {
+                test: /\.(js)$/,
+                loader: 'eslint-loader',
+                enforce: 'pre',
+                include: [path.resolve('src')],
+                options: {
+                    formatter: require('eslint-friendly-formatter')
+                }
+            },
+            {
                 test: /\.js$/,
                 use: 'babel-loader',
                 exclude: /node_modules/
@@ -38,7 +47,7 @@ const config = {
                         name: 'images/[name].[hash:8].[ext]'
                     }
                 }]
-            },
+            }
         ]
     },
     plugins: [
@@ -62,6 +71,5 @@ const config = {
         proxy: basicConfig.proxy
     }
 }
-
 
 module.exports = config

@@ -4,7 +4,6 @@ var serve = require('browser-sync')
 var del = require('del')
 var gutil = require('gulp-util')
 
-
 var webpackDevMiddleware = require('webpack-dev-middleware')
 var webpackHotMiddleware = require('webpack-hot-middleware')
 var proxyMiddleware = require('http-proxy-middleware')
@@ -15,8 +14,8 @@ var buildConfig = require('./build/config')
 gulp.task('serve', () => {
     const config = require('./build/webpack.config.dev')
     const mainEntry = config.entry.main
-    
-    if(Array.isArray(mainEntry)){
+
+    if (Array.isArray(mainEntry)) {
         config.entry.main.unshift('webpack-hot-middleware/client?reload=true')
     } else {
         config.entry.main = ['webpack-hot-middleware/client?reload=true', config.entry.main]
@@ -65,31 +64,30 @@ gulp.task('serve', () => {
             dir: buildConfig.staticDir
         }],
         middleware: middlewares
-    });
+    })
 })
 
 gulp.task('build', ['clean'], (cb) => {
     const config = require('./build/webpack.config.prod')
 
-    
     webpack(config, (err, stats) => {
         if (err) {
-            throw new gutil.PluginError("webpack", err);
+            throw new gutil.PluginError('webpack', err)
         }
 
-        gutil.log("[webpack]", stats.toString({
+        gutil.log('[webpack]', stats.toString({
             colors: colorsSupported,
             chunks: false,
             errorDetails: true
-        }));
+        }))
 
-        cb();
-    });
-});
+        cb()
+    })
+})
 
 gulp.task('clean', (cb) => {
     del([buildConfig.destDir]).then(function (paths) {
-        gutil.log("[clean]", paths);
-        cb();
+        gutil.log('[clean]', paths)
+        cb()
     })
-});
+})

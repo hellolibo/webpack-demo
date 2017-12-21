@@ -2,7 +2,6 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
-const ReloadPlugin = require('reload-html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
@@ -21,7 +20,16 @@ const config = {
     },
     devtool: 'source-map',
     module: {
-        rules: [{
+        rules: [
+            {
+                test: /\.(js)$/,
+                loader: 'eslint-loader',
+                enforce: 'pre',
+                include: [path.resolve('src')],
+                options: {
+                    formatter: require('eslint-friendly-formatter')
+                }
+            }, {
                 test: /\.js$/,
                 use: 'babel-loader',
                 exclude: /node_modules/
@@ -30,11 +38,12 @@ const config = {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: [{
-                            loader: 'css-loader',
+                    use: [
+                        {
+                            loader: 'css-loader'
                         },
                         {
-                            loader: 'sass-loader',
+                            loader: 'sass-loader'
                         }
                     ]
                 })
@@ -48,7 +57,7 @@ const config = {
                         name: 'images/[name].[hash:8].[ext]'
                     }
                 }]
-            },
+            }
         ]
     },
     plugins: [
@@ -72,23 +81,21 @@ const config = {
         new UglifyJsPlugin({
             sourceMap: true
         }),
-        new ExtractTextPlugin("css/[name].[contenthash:8].css"),
+        new ExtractTextPlugin('css/[name].[contenthash:8].css'),
         new CopyWebpackPlugin([{
             from: path.resolve(__dirname, '../assets'),
             to: 'assets',
             ignore: ['.*']
         }]),
         new HtmlWebpackPlugin({
-            template:'index.html'
+            template: 'index.html'
         })
     ]
 }
-
 
 if (basicConfig.report) {
     var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
     config.plugins.push(new BundleAnalyzerPlugin())
 }
-
 
 module.exports = config

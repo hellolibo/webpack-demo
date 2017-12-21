@@ -24,7 +24,7 @@ const config = {
     externals: [{
         module: 'jquery',
         entry: 'https://static.51offer.com/mod/npm/jquery@3.2.1/dist/jquery.min.js',
-        global: 'jQuery',
+        global: 'jQuery'
     }]
 }
 
