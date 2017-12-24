@@ -1,11 +1,10 @@
-const https = require('https')
-const path = require('path')
 
 const packageConfig = require('../package.json')
 
 const config = {
     appName: packageConfig.name,
-    appPublicPath: 'https://static.51offer.com/mod/app/' + packageConfig.name,
+    // 配置线上地址
+    // appPublicPath: 'https://static.domain/' + packageConfig.name,
     destDir: 'dist',
     staticRoute: '/assets',
     staticDir: './assets',
@@ -21,11 +20,14 @@ const config = {
         //     }
         // }
     },
-    externals: [{
-        module: 'jquery',
-        entry: 'https://static.51offer.com/mod/npm/jquery@3.2.1/dist/jquery.min.js',
-        global: 'jQuery'
-    }]
+    externals: [
+        // 外部引用框架
+        //     {
+        //     module: 'jquery',
+        //     entry: 'https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js',
+        //     global: 'jQuery'
+        // }
+    ]
 }
 
 module.exports = config

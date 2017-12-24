@@ -85,7 +85,6 @@ gulp.task('build', ['clean'], (cb) => {
     })
 })
 
-
 gulp.task('clean', (cb) => {
     del([buildConfig.destDir]).then(function (paths) {
         gutil.log('[clean]', paths)

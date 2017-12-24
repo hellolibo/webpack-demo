@@ -2,8 +2,8 @@
   "name": "calculator",
   "version": "1.0.0",
   "description": "a simple calculator",
-  "main": "./dist/index.js",
-  "module": "./src/index.js",
+  "main": "./dist/calculator.js",
+  "module": "./src/calculator.js",
   "scripts": {
     "dev": "gulp serve",
     "build": "gulp build",
@@ -42,7 +42,6 @@
     "html-webpack-externals-plugin": "^3.6.0",
     "html-webpack-plugin": "^2.30.1",
     "http-proxy-middleware": "^0.17.4",
-    "mocha": "^4.0.1",
     "node-sass": "^4.7.2",
     "reload-html-webpack-plugin": "^0.1.2",
     "sass-loader": "^6.0.6",
