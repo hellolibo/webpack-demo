@@ -4,7 +4,7 @@ const packageConfig = require('../package.json')
 const config = {
     appName: packageConfig.name,
     // 配置线上地址
-    // appPublicPath: 'https://static.domain/' + packageConfig.name,
+    appPublicPath: '',
     destDir: 'dist',
     staticRoute: '/assets',
     staticDir: './assets',
